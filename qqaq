@@ -1,0 +1,280 @@
+!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鄧至珵的個人網站 | 大學生專屬</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Font Awesome 圖示 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* 導覽列毛玻璃效果 */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        /* 自定義按鈕漸層 */
+        .btn-gradient {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+        }
+
+        /* 頂部閃爍小點動畫 */
+        @keyframes pulse-custom {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        .dot-pulse {
+            animation: pulse-custom 2s infinite;
+        }
+
+        /* 檔案拖曳區效果 */
+        .drop-zone:hover {
+            border-color: #6366f1;
+            background-color: #f5f3ff;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- 頂部導覽列 -->
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center">
+            <div class="text-xl font-bold tracking-tight text-indigo-600">DENG ZC.</div>
+            <div class="hidden md:flex space-x-8 items-center font-medium">
+                <a href="#about" class="text-slate-500 hover:text-indigo-600 transition">關於我</a>
+                <a href="#experience" class="text-slate-500 hover:text-indigo-600 transition">求學經歷</a>
+                <a href="#upload" class="bg-indigo-600 text-white px-5 py-2 rounded-full hover:bg-indigo-700 transition shadow-md">繳交作業</a>
+            </div>
+            <!-- 行動裝置選單按鈕 -->
+            <div class="md:hidden text-2xl text-slate-500">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 獨立顯示在最上方的連結橫幅 (明顯區塊) -->
+    <div class="pt-16"> <!-- 避開 fixed navbar -->
+        <div class="bg-indigo-600 py-3 px-4 shadow-lg">
+            <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div class="flex items-center text-white gap-2">
+                    <span class="w-2 h-2 bg-green-400 rounded-full dot-pulse"></span>
+                    <span class="font-medium text-sm md:text-base">重要連結：國立屏東科技大學 - 創新產品研發中心</span>
+                </div>
+                <a href="https://grsc.npust.edu.tw/blog/affiliated_center/the-center-of-innovation-and-product-development/" 
+                   target="_blank" 
+                   class="bg-white text-indigo-600 px-6 py-1.5 rounded-full font-bold text-sm hover:bg-indigo-50 transition-colors shadow-sm flex items-center gap-2">
+                    立即前往網站 <i class="fas fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 英雄區 (首頁) -->
+    <header class="pb-20 px-6 bg-white">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 pt-12">
+            <div class="flex-1">
+                <span class="inline-block bg-indigo-100 text-indigo-600 text-xs font-bold px-3 py-1 rounded-md mb-4 uppercase tracking-widest">大學生專屬空間</span>
+                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+                    你好，我是 <br><span class="text-indigo-600">鄧至珵</span>
+                </h1>
+                <p class="text-lg text-slate-500 mb-8 max-w-lg leading-relaxed">
+                    目前是一名熱愛挑戰的大學生。我喜歡運用數位技術來優化學習流程，這個網頁是我展示學習成果與收件的基地。
+                </p>
+                <div class="flex items-center gap-6">
+                    <a href="#upload" class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-slate-800 transition shadow-xl">
+                        立即繳交作業
+                    </a>
+                    <div class="flex gap-4 text-2xl text-slate-300">
+                        <i class="fab fa-instagram hover:text-pink-500 transition cursor-pointer"></i>
+                        <i class="fab fa-github hover:text-slate-900 transition cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-1">
+                <div class="w-64 h-64 md:w-80 md:h-80 bg-slate-100 rounded-[3rem] overflow-hidden mx-auto shadow-2xl rotate-3 hover:rotate-0 transition duration-500 flex items-center justify-center border-4 border-white">
+                    <i class="fas fa-user-graduate text-8xl text-slate-300"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 關於我 & 技能 -->
+    <section id="about" class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-12">
+            <div class="md:col-span-2">
+                <h2 class="text-3xl font-bold mb-8 flex items-center">
+                    <span class="w-10 h-1 bg-indigo-600 mr-4"></span> 關於我的故事
+                </h2>
+                <div class="space-y-6 text-lg text-slate-600 leading-relaxed">
+                    <p>我認為大學是人生中最精彩的時期。在校園裡，除了專業科目的鑽研，我更重視如何將理論與實踐結合。我喜歡參與小組討論，並嘗試用不同的切入點解決問題。</p>
+                    <p>目前我正在自學網頁設計、專案管理與數據分析，希望能成為一個跨領域的人才。</p>
+                </div>
+            </div>
+            <div class="bg-slate-100 p-8 rounded-3xl">
+                <h3 class="font-bold text-xl mb-6">學習技能清單</h3>
+                <ul class="space-y-4 font-medium">
+                    <li class="flex items-center text-indigo-600"><i class="fas fa-check-circle mr-3"></i> 報告企劃撰寫</li>
+                    <li class="flex items-center text-indigo-600"><i class="fas fa-check-circle mr-3"></i> Canva 視覺排版</li>
+                    <li class="flex items-center text-indigo-600"><i class="fas fa-check-circle mr-3"></i> Python 資料處理</li>
+                    <li class="flex items-center text-indigo-600"><i class="fas fa-check-circle mr-3"></i> 影片剪輯與後製</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 求學經歷區塊 -->
+    <section id="experience" class="py-24 px-6 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 flex items-center">
+            <span class="w-10 h-1 bg-indigo-600 mr-4"></span> 求學經歷
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                <div class="flex items-start gap-4 mb-4">
+                    <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-university text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold">國立屏東科技大學</h4>
+                        <p class="text-slate-500 font-medium text-sm">2022 - 至今</p>
+                    </div>
+                </div>
+                <p class="text-slate-600">致力於校內學術研究與專案開發。積極參與產學合作項目，增進實務經驗，並與創新產品研發中心保持密切學術交流。</p>
+            </div>
+            
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                <div class="flex items-start gap-4 mb-4">
+                    <div class="w-12 h-12 bg-slate-50 text-slate-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-users text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold">社團與課外活動</h4>
+                        <p class="text-slate-500 font-medium text-sm">2023 - 2024</p>
+                    </div>
+                </div>
+                <p class="text-slate-600">參與多項校內競賽與志工活動，學習團隊領導與跨部門溝通，強化軟實力與人際網。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 作業繳交區 -->
+    <section id="upload" class="py-24 px-6 bg-slate-900 text-white overflow-hidden relative">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">作業繳交入口</h2>
+                <p class="text-slate-400">專供組員與課堂同學使用，請填寫基本資料後上傳檔案。</p>
+            </div>
+
+            <div class="bg-white text-slate-900 rounded-[2.5rem] p-8 md:p-12 shadow-2xl">
+                <form id="submissionForm" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-400 mb-2 uppercase tracking-wide">姓名</label>
+                            <input type="text" id="userName" required class="w-full bg-slate-50 border-none rounded-xl p-4 focus:ring-2 focus:ring-indigo-500 outline-none" placeholder="輸入真實姓名">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-400 mb-2 uppercase tracking-wide">學號</label>
+                            <input type="text" id="studentId" required class="w-full bg-slate-50 border-none rounded-xl p-4 focus:ring-2 focus:ring-indigo-500 outline-none" placeholder="B11xxxxxx">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-slate-400 mb-2 uppercase tracking-wide">作業項目</label>
+                        <select id="assignment" class="w-full bg-slate-50 border-none rounded-xl p-4 focus:ring-2 focus:ring-indigo-500 outline-none appearance-none">
+                            <option>期中報告進度檔</option>
+                            <option>個人作業心得</option>
+                            <option>小組會議記錄</option>
+                            <option>其他附件資料</option>
+                        </select>
+                    </div>
+
+                    <div class="drop-zone border-2 border-dashed border-slate-200 rounded-2xl p-8 text-center transition cursor-pointer" onclick="document.getElementById('fileInput').click()">
+                        <input type="file" id="fileInput" class="hidden">
+                        <div id="fileStatus">
+                            <i class="fas fa-cloud-arrow-up text-4xl text-slate-300 mb-4"></i>
+                            <p class="text-slate-500">點擊此處選擇要繳交的檔案</p>
+                            <p class="text-xs text-slate-400 mt-2">支援格式：PDF, ZIP, DOCX (最大 20MB)</p>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="w-full btn-gradient text-white py-5 rounded-2xl font-bold text-lg hover:shadow-lg transition transform active:scale-[0.98]">
+                        確認繳交並傳送
+                    </button>
+                </form>
+
+                <div id="successState" class="hidden text-center py-12">
+                    <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-check text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">上傳成功！</h3>
+                    <p class="text-slate-500 mb-8">鄧至珵已收到你的繳交訊息，感謝你的配合。</p>
+                    <button onclick="window.location.reload()" class="text-indigo-600 font-bold hover:underline">再次繳交其他檔案</button>
+                </div>
+            </div>
+        </div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-indigo-500 opacity-5 rounded-full -mr-20 -mt-20"></div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="bg-white py-12 px-6 text-center border-t border-slate-100">
+        <p class="font-bold text-indigo-600 mb-2">DENG ZC. | 個人作品空間</p>
+        <p class="text-slate-400 text-sm italic">一個專注於學習與分享的實驗室空間</p>
+        <div class="mt-8 text-slate-300 text-[10px] uppercase font-bold tracking-widest">
+            © 2024 Zhi-Cheng Deng. Built for better college life.
+        </div>
+    </footer>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const fileStatus = document.getElementById('fileStatus');
+
+        fileInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                fileStatus.innerHTML = `
+                    <i class="fas fa-file-circle-check text-4xl text-indigo-500 mb-4"></i>
+                    <p class="text-indigo-600 font-bold">${this.files[0].name}</p>
+                    <p class="text-xs text-slate-400 mt-2">檔案已就緒，請點擊下方按鈕傳送</p>
+                `;
+            }
+        });
+
+        const submissionForm = document.getElementById('submissionForm');
+        const successState = document.getElementById('successState');
+        const submitBtn = document.getElementById('submitBtn');
+
+        submissionForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('userName').value;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> 正在傳輸中...';
+
+            setTimeout(() => {
+                submissionForm.classList.add('hidden');
+                successState.classList.remove('hidden');
+            }, 1800);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
